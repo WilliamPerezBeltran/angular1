@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- Include the AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  </head>
+  <body ng-app="formApp">
+
+
+
+
+<div ng-controller="MainCtrl">
+        <form name="exampleForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" placeholder="name" name="name" ng-model="formData.name" required>
+          </div>
+ 
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" placeholder="last name" name="lastname" ng-model="formData.lastname" required>
+          </div>
+ 
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" placeholder="example@email.com" name="email" ng-model="formData.email" required>
+          </div>
+ 
+          <input type="submit" class="btn btn-success pull-right" ng-click="submitForm(formData)" />
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var app = angular.module('formApp', []);
+ 
+app.controller('MainCtrl', function($scope) {
+  $scope.formData = {};
+ 
+  $scope.submitForm = function (formData) {
+    alert('Form submitted with' + JSON.stringify(formData));
+  };
+});
+ 
+</script>
+
+
+
+
+
+
+
+
+
+
+   
+
+  </body>
+</html>

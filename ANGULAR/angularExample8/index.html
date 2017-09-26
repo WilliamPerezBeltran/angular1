@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <style type="text/css">
+      b{
+        color:#99ccff;
+      }
+    </style>
+
+    <!-- Include the AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  </head>
+  <body ng-app="AppMarketApp">
+  <div style="margin-top: 30px; background:#404040; color:white;   border:1px solid  #404040; border-radius:5px;">
+      <div  style="width:400px;margin: 0 auto; text-align:justify;">
+            <p>So far we've made AngularJS apps by adding data to a controller, and then displaying it in a view.</p><br>
+            <p>But what happens when the data contains hundreds of items, or if it's constantly changing like weather or financial data? Hardcoding data into a controller won't work anymore.</p><br>
+            <p>A better solution is to read the live data from a server. We can do this by creating a service.</p><br>
+
+            <ul>
+            <ol>el jason que tengo en el archivo jason.js es la similitud de traer datos en la base de datos.</ol>
+              <ol>1.  Create a service named forecast that fetches the weather data from the server. In the new file <b >js/services/forecast.js</b> Type in this code exactly as you see here:</ol>
+              <ol>2.se crea el servicio  con el codigo de <b ">js/services/forecast.js</b>  </ol>
+              <ol>3.se pone el script direccionandolo al index.html</ol>
+              <ol>4.In the controller, modify MainController by passing in the forecast service, like this:</ol>
+              <ol><img src="img/1.png"> </ol>
+              <ol>5.Inside MainController, use the forecast service to save the weather data into $scope.fiveDay, like this:</ol>
+              <ol><img src="img/2.png"> </ol>
+            </ul>
+            <h2 style="text-align:center;">explicacion:</h2>
+            Como no funciona porque no se como traer los datos, solo tengo el jason pero despues miro como lo aplico de todos modos la explicacion es esta:<br>
+
+
+            <ul>
+              <ol>1.  First in <b">js/services/forecast.js</b>, we made a new service. We used app.factory to create a new service named forecast</ol><br>
+              <ol>2. The forecast service needs to use AngularJS's built-in $http to fetch JSON from the server. Therefore, we add $http to the forecast service as a dependency, like this:</ol>
+              <ol><img src="img/3.png"> </ol><br>
+
+              <ol>Now <b >$http</b> is available to use inside <b >forecast</b>.</ol><br>
+              <ol>3. Then, inside <b>forecast</b>, we use <b>$http</b> to construct an HTTP <b>GET</b> request for the weather data. If the request succeeds, the weather data is returned; otherwise the error info is returned.</ol><br>
+              <ol>4.  Next in the controller, we used the <b>forecast</b> service to fetch data from the server. First we added <b>forecast</b> into <b>MainController</b> as a dependency so that it's available to use. Then within the controller we used <b>forecast</b> to asynchronously fetch the weather data from the server and store it into <b>$scope</b>.fiveDay</ol><br>
+              <ol>5.  As before, any properties attached to <b>$scope</b> become available to use in the view. This means in <b>index.html</b>, we can display the <b>city_name</b> using an expression as done before.</ol><br>
+              <ol>6.</ol><br>
+            </ul>
+      </div>
+      <b></b>
+    
+  </div>
+  
+  <p></p><br>
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-7">
+            <h1>{{ fiveDay.city_name }}</h1>
+            <h2>5-day forecast</h2>
+            <div class="forecast" ng-repeat="day in fiveDay.days">
+              <div class="day row">
+
+                <!-- datetime -->
+                <div class="weekday col-xs-4">
+
+                </div>
+
+
+                <!-- icon -->
+                <div class="weather col-xs-3">
+
+                </div>
+
+                <div class="col-xs-1"></div>
+
+
+                <!-- high -->
+                <div class="high col-xs-2">
+
+
+                </div>
+
+
+                <!-- low -->
+                <div class="low col-xs-2">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directives/appInfo.js"></script>
+    <script src="js/directives/installApp.js"></script>
+
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+   
